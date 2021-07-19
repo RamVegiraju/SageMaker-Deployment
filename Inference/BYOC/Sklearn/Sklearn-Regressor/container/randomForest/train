@@ -1,0 +1,97 @@
+#!/usr/bin/env python
+from __future__ import print_function
+
+
+import pickle
+import sys
+import traceback
+import json
+import os
+
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestRegressor
+from sklearn import metrics
+
+print("working")
+
+
+prefix = '/opt/ml/'
+
+input_path = prefix + 'input/data'
+output_path = os.path.join(prefix, 'output')
+model_path = os.path.join(prefix, 'model')
+param_path = os.path.join(prefix, 'input/config/hyperparameters.json')
+
+
+channel_name='training'
+training_path = os.path.join(input_path, channel_name)
+
+
+
+# The function to execute the training.
+def train():
+    print('Starting the training.')
+    try:
+        # Hyperparameters
+        with open(param_path, 'r') as tc:
+            trainingParams = json.load(tc)
+
+        # Reading in training data files in path
+        print("error with reading in dataset")
+        input_files = [ os.path.join(training_path, file) for file in os.listdir(training_path) ]
+        if len(input_files) == 0:
+            raise ValueError(('There are no files in {}.\n' +
+                              'This usually indicates that the channel ({}) was incorrectly specified,\n' +
+                              'the data specification in S3 was incorrectly specified or the role specified\n' +
+                              'does not have permission to access the data.').format(training_path, channel_name))
+        print(len(input_files))
+        print(input_files[0])
+        print(type(input_files[0]))
+        print(input_files[1])
+        print(type(input_files[1]))
+        print(input_files)
+        
+        searchFile = "csv"
+        for f in input_files:
+            if searchFile not in f:
+                input_files.remove(f)
+        print(input_files)
+        #raw_data = [ pd.read_csv(file, header=None) for file in input_files ]
+        df = pd.read_csv(input_files[0])
+        #df = pd.concat(raw_data)
+        print(len(df))
+        print(df.columns)
+
+        # labels are in the first column
+        X = df.drop('Petrol_Consumption', axis = 1)
+        y = df['Petrol_Consumption']
+
+        # Here we only support a single hyperparameter. Note that hyperparameters are always passed in as
+        # strings, so we need to do any necessary conversions.
+        #max_leaf_nodes = trainingParams.get('max_leaf_nodes', None)
+        #if max_leaf_nodes is not None:
+            #max_leaf_nodes = int(max_leaf_nodes)
+
+        # Model training
+        regressor = RandomForestRegressor(n_estimators=30)
+        regressor.fit(X, y)
+
+        # save the model
+        with open(os.path.join(model_path, 'rf-model.pkl'), 'wb') as out:
+            pickle.dump(regressor, out)
+        print('Training complete.')
+    except Exception as e:
+        trc = traceback.format_exc()
+        with open(os.path.join(output_path, 'failure'), 'w') as s:
+            s.write('Exception during training: ' + str(e) + '\n' + trc)
+        print('Exception during training: ' + str(e) + '\n' + trc, file=sys.stderr)
+        sys.exit(255)
+
+if __name__ == '__main__':
+    train()
+
+    # A zero exit code causes the job to be marked a Succeeded.
+    sys.exit(0)
