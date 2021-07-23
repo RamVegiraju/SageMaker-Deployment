@@ -11,6 +11,9 @@ import traceback
 import flask
 import pandas as pd
 
+
+#All training, model, hyperparameter type artifacts are within this prefix
+#for a general structure visit following link: 
 prefix = "/opt/ml/"
 model_path = os.path.join(prefix, "model")
 

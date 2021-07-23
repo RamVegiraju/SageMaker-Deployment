@@ -54,6 +54,7 @@ def train():
         print(type(input_files[1]))
         print(input_files)
         
+        ##Find csv datasets in the input_files, sometimes .ipynb checkpoints are read to so want to filter
         searchFile = "csv"
         for f in input_files:
             if searchFile not in f:
@@ -68,12 +69,6 @@ def train():
         # labels are in the first column
         X = df.drop('Petrol_Consumption', axis = 1)
         y = df['Petrol_Consumption']
-
-        # Here we only support a single hyperparameter. Note that hyperparameters are always passed in as
-        # strings, so we need to do any necessary conversions.
-        #max_leaf_nodes = trainingParams.get('max_leaf_nodes', None)
-        #if max_leaf_nodes is not None:
-            #max_leaf_nodes = int(max_leaf_nodes)
 
         # Model training
         regressor = RandomForestRegressor(n_estimators=30)
