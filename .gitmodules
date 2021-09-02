@@ -1,0 +1,6 @@
+[submodule "Inference/Multi-Model-Endpoint/Inference/Multi-Model-Endpoint/BYO/SageMaker-MME-HuggingFace-NLP"]
+	path = Inference/Multi-Model-Endpoint/Inference/Multi-Model-Endpoint/BYO/SageMaker-MME-HuggingFace-NLP
+	url = https://github.com/C24IO/SageMaker-MME-HuggingFace-NLP.git
+[submodule "Inference/Multi-Model-Endpoint/BYO/SageMaker-MME-HuggingFace-NLP"]
+	path = Inference/Multi-Model-Endpoint/BYO/SageMaker-MME-HuggingFace-NLP
+	url = https://github.com/C24IO/SageMaker-MME-HuggingFace-NLP.git
