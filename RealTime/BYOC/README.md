@@ -5,4 +5,4 @@
 
 [SageMaker Containers Explained](https://sagemaker-workshop.com/custom/containers.html)
 
-[More Examples](https://sagemaker-examples.readthedocs.io/en/latest/training/bring_your_own_container.html)
+[Further Examples](https://sagemaker-examples.readthedocs.io/en/latest/training/bring_your_own_container.html)
