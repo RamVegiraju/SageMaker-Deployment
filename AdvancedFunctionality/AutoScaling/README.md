@@ -1,4 +1,4 @@
-## Resources
+## Additional Resources
 
 [SageMaker AutoScaling Reference Blog](https://aws.amazon.com/blogs/machine-learning/configuring-autoscaling-inference-endpoints-in-amazon-sagemaker/)
 
