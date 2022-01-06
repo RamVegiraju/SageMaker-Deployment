@@ -16,4 +16,5 @@ Compilation of examples of SageMaker inference options and other features.
 
 ## Performance Optimiztion/Advanced Functionality
 This is most pertinent for Real-Time Inference in regards to handling traffic spikes and meeting latency requirements. More techniques + tools will be added to help optimize performance for your use-case.
+
 [AutoScaling](https://github.com/RamVegiraju/SageMaker-Deployment/tree/master/AdvancedFunctionality/AutoScaling)
