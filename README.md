@@ -3,9 +3,9 @@ Compilation of examples of SageMaker inference options and other features.
 
 ## Inference Options
 - [Real-Time Inference](https://github.com/RamVegiraju/SageMaker-Deployment/tree/master/RealTime)
-  - Multi-Model Endpoints(MME)
-  - Multi-Container Endpoints(MCE)
-  - Serial Inference Pipelines
+  - [Multi-Model Endpoints(MME)](https://github.com/RamVegiraju/SageMaker-Deployment/tree/master/RealTime/Multi-Model-Endpoint)
+  - [Multi-Container Endpoints(MCE)](https://github.com/RamVegiraju/SageMaker-Deployment/tree/master/RealTime/Multi-Container)
+  - [Serial Inference Pipelines](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipelines.html)
 - [Serverless Inference](https://github.com/RamVegiraju/SageMaker-Deployment/tree/master/Serverless)
 - [Asynchronous Inference](https://github.com/RamVegiraju/SageMaker-Deployment/tree/master/Async)
 - [Batch Transform](https://github.com/RamVegiraju/SageMaker-Deployment/tree/master/BatchTransform)
