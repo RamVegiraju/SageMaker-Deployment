@@ -1,4 +1,4 @@
 ## Serverless BYOC Examples
 
-- LightGBM
-- Spacy
+- [LightGBM](https://lightgbm.readthedocs.io/en/latest/)
+- [Spacy](https://spacy.io/)
