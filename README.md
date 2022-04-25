@@ -18,6 +18,7 @@ Compilation of examples of SageMaker inference options and other features.
 This is most pertinent for Real-Time Inference in regards to handling traffic spikes and meeting latency requirements. More techniques + tools will be added to help optimize performance for your use-case.
 
 [AutoScaling](https://github.com/RamVegiraju/SageMaker-Deployment/tree/master/AdvancedFunctionality/AutoScaling)
+[Custom Inference Scripts](https://github.com/RamVegiraju/SageMaker-Deployment/tree/master/AdvancedFunctionality/CustomInference)
 
 ## How To Deploy ML Models on Amazon SageMaker?
 [SageMaker SDK vs Boto3 Python SDK](https://ram-vegiraju.medium.com/sagemaker-python-sdk-vs-boto3-sdk-45c424e8e250)
