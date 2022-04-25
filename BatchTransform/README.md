@@ -1,2 +1,2 @@
 # Batch Transform
-Examples to be added
+[Documentation](https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html)
