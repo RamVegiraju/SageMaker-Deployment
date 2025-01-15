@@ -1,0 +1,16 @@
+#authenticate Docker with ECR to pull image
+$(aws ecr get-login --region us-east-1 --no-include-email --registry-ids 763104351884)
+
+# start the container
+# ensure to replace the path for where your model artifacts are located
+docker run \
+-v /home/ec2-user/SageMaker/SM-Docker-Local-Debug:/opt/ml/model \
+--cpu-shares 512 \
+-p 8080:8080 \
+763104351884.dkr.ecr.us-east-1.amazonaws.com/djl-inference:0.29.0-cpu-full \
+serve
+
+# send a sample request via curl
+curl -X POST http://localhost:8080/invocations \
+     -H "Content-Type: application/json" \
+     -d '[[0.5]]'
