@@ -2,7 +2,7 @@
 $(aws ecr get-login --region us-east-1 --no-include-email --registry-ids 763104351884)
 
 # start the container
-# ensure to replace the path for where your model artifacts are located
+# ensure to replace the path for where your model artifacts are located and the container image with your requisite image
 docker run \
 -v /home/ec2-user/SageMaker/SM-Docker-Local-Debug:/opt/ml/model \
 --cpu-shares 512 \
