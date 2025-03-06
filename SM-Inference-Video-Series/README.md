@@ -9,4 +9,5 @@ You can watch in any order you feel is best/ideal for yourself, but I've structu
 4. [Load Testing SageMaker Endpoints](https://www.youtube.com/watch?v=ZURoZZbiqj0&t=5s)
 5. [AutoScaling SageMaker Endpoints](https://www.youtube.com/watch?v=I_KYnCvREzw&list=PLThJtS7RDkOeo9mpNjFVnIGDyiazAm9Uk&index=5)
 6. [Multi-Model Hosting Options Available on SageMaker](https://www.youtube.com/watch?v=egQp4_oWWFM&list=PLThJtS7RDkOeo9mpNjFVnIGDyiazAm9Uk&index=6)
-7. [LLM Hosting Options on Amazon SageMaker](https://www.youtube.com/watch?v=ofh1Z4aW8Qk)
+7. [Multi-Model Endpoints Hands-On](https://www.youtube.com/watch?v=hA7Zx9Wf--M&list=PLThJtS7RDkOeo9mpNjFVnIGDyiazAm9Uk&index=7)
+8. [LLM Hosting Options on Amazon SageMaker](https://www.youtube.com/watch?v=ofh1Z4aW8Qk)
