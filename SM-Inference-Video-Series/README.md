@@ -12,4 +12,4 @@ You can watch in any order you feel is best/ideal for yourself, but I've structu
 7. [Multi-Model Endpoints Hands-On](https://www.youtube.com/watch?v=hA7Zx9Wf--M&list=PLThJtS7RDkOeo9mpNjFVnIGDyiazAm9Uk&index=7)
 8. [LLM Hosting Options on Amazon SageMaker](https://www.youtube.com/watch?v=ofh1Z4aW8Qk)
 9. [Hosting LLMs with the Large Model Inference Container](https://www.youtube.com/watch?v=Q-Kz5Yi0QiQ&t=728s)
-10. [SageMaker Inference Components: Deploying Multiple LLMs on One Endpoint](SageMaker Inference Components: Deploying Multiple LLMs on One Endpoint)
+10. [SageMaker Inference Components: Deploying Multiple LLMs on One Endpoint](https://www.youtube.com/watch?v=RcUNEeUqpNQ&t=1024s)
