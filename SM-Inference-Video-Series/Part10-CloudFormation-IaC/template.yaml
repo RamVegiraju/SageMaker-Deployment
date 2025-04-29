@@ -1,0 +1,95 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CFN template to deploy SageMaker Endpoint
+
+Parameters:
+
+  ModelDataBucket:
+    Type: String
+    Description: The S3 bucket name containing the model
+    Default: Replace with your S3 Bucket containing model data
+    
+  ImageURI:
+    Type: String
+    Description: The inference/container image that you are using
+    Default: 763104351884.dkr.ecr.us-east-1.amazonaws.com/djl-inference:0.29.0-cpu-full
+
+  ModelData:
+    Type: String
+    Description: The S3 Path with the Model Data
+    Default: Replace with your Model Data Path
+
+  InstanceType:
+    Type: String
+    Description: SageMaker Endpoint Instance Type
+    Default: ml.c5.xlarge
+  
+  InstanceCount:
+    Type: String
+    Description: Number of instances behind endpoint
+    Default: 1
+
+Resources:
+
+  SageMakerExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub sagemaker-execution-role-${AWS::StackName}
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: sagemaker.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: SageMakerExecutionPolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:ListBucket
+                Resource: 
+                  - !Sub "arn:aws:s3:::${ModelDataBucket}"
+                  - !Sub "arn:aws:s3:::${ModelDataBucket}/*"
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - ecr:GetDownloadUrlForLayer
+                  - ecr:BatchGetImage
+                  - ecr:BatchCheckLayerAvailability
+                Resource: arn:aws:ecr:us-east-1:763104351884:repository/djl-inference
+              - Effect: Allow
+                Action:
+                  - ecr:GetAuthorizationToken
+                Resource: "*"
+
+  SageMakerModel:
+    Type: AWS::SageMaker::Model
+    Properties: 
+      Containers: 
+        - Image: !Ref ImageURI
+          ModelDataUrl: !Ref ModelData
+          Mode: SingleModel
+      ExecutionRoleArn: !GetAtt SageMakerExecutionRole.Arn
+
+  SageMakerEndpointConfig:
+    Type: AWS::SageMaker::EndpointConfig
+    Properties:
+      ProductionVariants: 
+        - ModelName: !GetAtt SageMakerModel.ModelName
+          VariantName: sklearn-variant
+          InitialInstanceCount: !Ref InstanceCount
+          InstanceType: !Ref InstanceType
+          InitialVariantWeight: 1.0
+
+  SageMakerEndpoint:
+    Type: AWS::SageMaker::Endpoint
+    Properties: 
+      EndpointConfigName: !GetAtt SageMakerEndpointConfig.EndpointConfigName
