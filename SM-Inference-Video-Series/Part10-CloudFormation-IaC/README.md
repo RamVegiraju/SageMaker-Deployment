@@ -1,4 +1,4 @@
-# [Video Coming]()
+# [YT Video](https://www.youtube.com/watch?v=rIAQ5BppDpk)
 How to use CloudFormation and IaC best practices to deploy a SageMaker endpoint.
 
 ## AWS CLI command
