@@ -20,3 +20,4 @@ You can watch in any order you feel is best/ideal for yourself, but I've structu
 15. [Bring Your Own Container with SageMaker Endpoints](https://www.youtube.com/watch?v=oX1Y1cuA-vQ&list=PLThJtS7RDkOeo9mpNjFVnIGDyiazAm9Uk&index=15)
 16. [SageMaker Multi-Adapter Inference](http://youtube.com/watch?v=yuBUHG1T3Lo)
 17. [vLLM Tool Calling](https://www.youtube.com/watch?v=TPjpa6iFGwo)
+18. [Sticky Session Routing](https://www.youtube.com/watch?v=9F0pjSBHFuA)
