@@ -19,3 +19,4 @@ You can watch in any order you feel is best/ideal for yourself, but I've structu
 14. [Deploying SM Endpoints with Terraform](https://www.youtube.com/watch?v=iyrNuU1Ljc4&list=PLThJtS7RDkOeo9mpNjFVnIGDyiazAm9Uk&index=14)
 15. [Bring Your Own Container with SageMaker Endpoints](https://www.youtube.com/watch?v=oX1Y1cuA-vQ&list=PLThJtS7RDkOeo9mpNjFVnIGDyiazAm9Uk&index=15)
 16. [SageMaker Multi-Adapter Inference](http://youtube.com/watch?v=yuBUHG1T3Lo)
+17. [vLLM Tool Calling](https://www.youtube.com/watch?v=TPjpa6iFGwo)
